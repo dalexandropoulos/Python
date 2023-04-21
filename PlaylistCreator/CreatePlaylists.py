@@ -7,6 +7,7 @@ def searching_for_files(folder_path, extensions, copyright):
             dir_path = os.path.join(root, dir)
             if any(file.lower().endswith(tuple(extensions)) for file in os.listdir(dir_path)):
                 create_playlist(dir_path, extensions, copyright)
+    print("Job Done")
 
 #Function to create playlist (.pls) of media files
 def create_playlist(folder_path, extensions, copyright_text):
