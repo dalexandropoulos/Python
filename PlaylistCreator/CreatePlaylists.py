@@ -32,3 +32,6 @@ extensions = ('.mp3', '.mp4', '.avi', '.mkv', '.flac')
 copyright = 'Copyright (c) 2023 Alexandropoulos Dimitrios'
 current_folder_path = os.getcwd()
 create_playlists_recursive(current_folder_path, extensions, copyright)
+
+
+# Testing Done !
