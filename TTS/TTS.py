@@ -1,5 +1,10 @@
 from gtts import gTTS
 import subprocess
+import os
+
+os.system("title TTS - Rizospastis Edition")
+
+os.system("start https://www.rizospastis.gr/textOnly.do?nav=true")
 
 # Specify the path to the input text file
 input_file = "input.txt"
@@ -22,3 +27,7 @@ output_file = "output.mp3"
 tts.save(output_file)
 
 print("MP3 file created successfully!")
+
+# Open Site to change speed
+os.system("start https://mp3cut.net/change-speed")
+os.system("start.")
