@@ -90,5 +90,5 @@ tm.printtape()
 while True:
     tm.nextstep()
     tm.printtape()
-    # time.sleep(1)
+    time.sleep(0.1)
 
