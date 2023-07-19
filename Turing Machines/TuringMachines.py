@@ -50,12 +50,23 @@ class TuringMachine:
             self.index = self.index -1 + 2 * move_value
         
         if self.instractions_set == 0 or self.instractions_set > len(self.instractions)/2: 
-            print("halt")
+            tm.printtape()
+            print("halt", end=' ')
+            sum=0
+            for i in range(0, len(self.tape)):
+                sum += self.tape[i]
+            print(sum)
             sys.exit()
     
     def printtape(self):
         for i in range(0, len(self.tape)):
-            print(self.tape[i],end='') if self.index != i else printc(self.tape[i],'red',1)
+            if self.index == i:
+                printc(self.tape[i],'red',1)
+            else:
+                if self.tape[i] == 0:
+                    printc(self.tape[i],'dark_gray',1)
+                else:
+                    printc(self.tape[i],'light_gray',1)
         print()
 
 
@@ -64,15 +75,20 @@ def printc(text, color, end):
 
 
 # Setup Turing Machine
-instractions = ["102", "111", "111", "102"]
+instractions2 = ["112", "102", "101", "110"]
+instractions3 = ["112", "110", "013", "112", "103", "101"]
+instractions4 = ["112", "102", "101", "003", "110", "104", "114", "011"]
+instractions5 = ["102", "101", "113", "112", "101", "114", "101", "115", "110", "013"]
+instractions =  ["102", "101", "113", "112", "101", "114", "101", "115", "110", "013"]
 tm = TuringMachine(instractions)
 
-print("Turing Machine")
+print("Turing Machine",end=' ')
 printc(tm.instractions,"red",0)
 print()
 
+tm.printtape()
 while True:
-    tm.printtape()
     tm.nextstep()
-    time.sleep(.05)
+    tm.printtape()
+    # time.sleep(1)
 
