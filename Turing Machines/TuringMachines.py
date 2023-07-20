@@ -31,6 +31,8 @@ class TuringMachine:
 
         # Calculating
         a = 2 * self.instractions_set -2 ; b = 2 * self.instractions_set -1
+        instractions_to_print = self.instractions[a] if read_value == 0 else self.instractions[b]
+        printc(instractions_to_print + ' ','red',1)
         write_value = int(self.instractions[a][0]) if read_value == 0 else int(self.instractions[b][0])
         move_value = int(self.instractions[a][1]) if read_value == 0 else int(self.instractions[b][1])
         self.instractions_set = int(self.instractions[a][2]) if read_value == 0 else int(self.instractions[b][2])
@@ -78,8 +80,9 @@ def printc(text, color, end):
 instractions2 = ["112", "102", "101", "110"]
 instractions3 = ["112", "110", "013", "112", "103", "101"]
 instractions4 = ["112", "102", "101", "003", "110", "104", "114", "011"]
+instractions  = ["112", "102", "101", "003", "110", "104", "114", "011"]
 instractions5 = ["102", "101", "113", "112", "101", "114", "101", "115", "110", "013"]
-instractions =  ["102", "101", "113", "112", "101", "114", "101", "115", "110", "013"]
+#instractions = ["102", "101", "113", "112", "101", "114", "101", "115", "110", "013"]
 tm = TuringMachine(instractions)
 
 print("Turing Machine",end=' ')
@@ -90,5 +93,4 @@ tm.printtape()
 while True:
     tm.nextstep()
     tm.printtape()
-    time.sleep(0.1)
-
+    time.sleep(0.05)
